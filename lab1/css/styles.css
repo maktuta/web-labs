@@ -1,0 +1,135 @@
+:root {
+    /* Page color scheme */
+    --my-cyan: #ffffff;
+    --my-light-green: #edff62;
+    --my-dark-purple: #60d8ca;
+    --my-light-purple: #63cdb3;
+    --my-yellow: #68a5ef;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows:
+        minmax(min-content, 20%) minmax(min-content, 10%) minmax(
+            min-content,
+            50%
+        )
+        minmax(min-content, 20%);
+    min-height: 100vh;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--my-light-purple);
+    grid-area: 4 / 1 / 5 / 5;
+    padding: 10px 10px 10px 10px;
+}
+
+footer h2 {
+    margin-right: auto;
+}
+
+footer p {
+    max-width: 50%;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--my-dark-purple);
+    grid-area: 1 / 2 / 2 / 5;
+    padding: 10px 10px 10px 10px;
+}
+
+header h1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header p {
+    max-width: 50%;
+    margin-left: auto;
+}
+
+nav {
+    grid-area: 2 / 2 / 3 / 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--my-light-green);
+    padding: 5%;
+}
+
+nav a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--my-cyan);
+    grid-area: 3 / 2 / 4 / 4;
+    padding: 10px 10px 10px 10px;
+}
+
+main p {
+    margin-right: 25%;
+}
+
+.left {
+    background: var(--my-yellow);
+    grid-area: 1 / 1 / 4 / 2;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right {
+    background: var(--my-yellow);
+    grid-area: 2 / 4 / 4 / 5;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main ul {
+    margin: 0 auto 0 auto;
+}
+
+main ol {
+    margin: 0 auto 0 auto;
+}
+
+.main-image {
+    margin: auto;
+    width: 50%;
+    height: auto;
+}
+
+.main-map {
+    margin: auto;
+    width: 70%;
+    height: auto;
+}
