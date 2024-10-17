@@ -1,135 +1,149 @@
 :root {
-    /* Page color scheme */
-    --my-cyan: #ffffff;
-    --my-light-green: #edff62;
-    --my-dark-purple: #60d8ca;
-    --my-light-purple: #63cdb3;
-    --my-yellow: #68a5ef;
+    /* Схема кольорів сторінки */
+    --my-cyan: #ffffff;           /* Білий колір */
+    --my-light-yellow: #edff62;    /* Світло-жовтий колір*/
+    --my-dark-torqoise: #60d8ca;    /* Темно-фіолетовий (бірюзовий) колір */
+    --my-light-torqoise: #63cdb3;   /* Світло-фіолетовий (бірюзовий) колір */
+    --my-blue: #68a5ef;         /* Жовтий колір */
 }
 
 *,
 *::before,
 *::after {
+    /* Налаштування для всіх елементів та псевдоелементів, щоб враховувалися бордюри та відступи */
     box-sizing: border-box;
 }
 
 body {
+    /* Видалення зовнішніх полів та відступів */
     margin: 0;
     padding: 0;
+    /* Налаштування структури сітки для сторінки */
     display: grid;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(4, 25%);  /* 4 рівних стовпці */
     grid-template-rows:
-        minmax(min-content, 20%) minmax(min-content, 10%) minmax(
-            min-content,
-            50%
-        )
-        minmax(min-content, 20%);
-    min-height: 100vh;
+        minmax(min-content, 20%)    /* Перший рядок: мінімальний вміст, максимум 20% */
+        minmax(min-content, 10%)    /* Другий рядок: мінімальний вміст, максимум 10% */
+        minmax(min-content, 50%)    /* Третій рядок: мінімальний вміст, максимум 50% */
+        minmax(min-content, 20%);   /* Четвертий рядок: мінімальний вміст, максимум 20% */
+    min-height: 100vh;  /* Мінімальна висота сторінки - 100% висоти вікна */
 }
 
 footer {
+    /* Відображення футера як гнучкого контейнера */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--my-light-purple);
-    grid-area: 4 / 1 / 5 / 5;
-    padding: 10px 10px 10px 10px;
+    justify-content: space-between;  /* Простір між елементами */
+    align-items: center;  /* Вертикальне вирівнювання по центру */
+    background: var(--my-light-torqoise);  /* Світло-фіолетовий фон */
+    grid-area: 4 / 1 / 5 / 5;  /* Розміщення футера на сітці: від 4-го до 5-го рядка, займає всі стовпці */
+    padding: 10px 10px 10px 10px;  /* Внутрішні відступи */
 }
 
 footer h2 {
+    /* Вирівнювання заголовка вліво */
     margin-right: auto;
 }
 
 footer p {
+    /* Максимальна ширина параграфа у футері - 50% */
     max-width: 50%;
 }
 
 header {
+    /* Відображення хедера як гнучкого контейнера */
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: var(--my-dark-purple);
-    grid-area: 1 / 2 / 2 / 5;
-    padding: 10px 10px 10px 10px;
+    justify-content: space-around;  /* Простір рівномірно розподілений між елементами */
+    align-items: center;  /* Вертикальне вирівнювання по центру */
+    background: var(--my-dark-torqoise);  /* Темно-фіолетовий фон */
+    grid-area: 1 / 2 / 2 / 5;  /* Розміщення хедера на сітці: від 1-го до 2-го рядка, займає стовпці з 2 по 4 */
+    padding: 10px 10px 10px 10px;  /* Внутрішні відступи */
 }
 
 header h1 {
+    /* Центрування заголовка */
     margin-left: auto;
     margin-right: auto;
 }
 
 header p {
+    /* Максимальна ширина параграфа у хедері - 50%, вирівняний праворуч */
     max-width: 50%;
     margin-left: auto;
 }
 
 nav {
-    grid-area: 2 / 2 / 3 / 4;
+    /* Налаштування навігації */
+    grid-area: 2 / 2 / 3 / 4;  /* Розміщення навігації на сітці: від 2-го до 3-го рядка, займає стовпці з 2 по 3 */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--my-light-green);
-    padding: 5%;
+    justify-content: space-between;  /* Простір між елементами */
+    align-items: center;  /* Вертикальне вирівнювання по центру */
+    background: var(--my-light-yellow);  /* Світло-жовтий фон */
+    padding: 5%;  /* Внутрішній відступ - 5% */
 }
 
 nav a {
-    text-transform: uppercase;
-    text-decoration: none;
-    color: inherit;
+    /* Налаштування посилань */
+    text-transform: uppercase;  /* Всі літери великі */
+    text-decoration: none;  /* Без підкреслення */
+    color: inherit;  /* Колір успадковується від батьківського елемента */
 }
 
 nav a:hover {
-    text-decoration: underline;
-    transition: 0.3s;
+    /* Стилі при наведенні на посилання */
+    text-decoration: underline;  /* Підкреслення при наведенні */
+    transition: 0.3s;  /* Перехід при наведенні триває 0.3 секунди */
 }
 
 main {
+    /* Налаштування основної частини */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--my-cyan);
-    grid-area: 3 / 2 / 4 / 4;
-    padding: 10px 10px 10px 10px;
+    flex-direction: column;  /* Елементи розташовані у стовпчик */
+    justify-content: center;  /* Вирівнювання по центру вертикально */
+    background: var(--my-cyan);  /* Білий фон */
+    grid-area: 3 / 2 / 4 / 4;  /* Розміщення на сітці: від 3-го до 4-го рядка, займає стовпці з 2 по 3 */
+    padding: 10px 10px 10px 10px;  /* Внутрішні відступи */
 }
 
 main p {
+    /* Відступ параграфа справа - 25% */
     margin-right: 25%;
 }
 
 .left {
-    background: var(--my-yellow);
-    grid-area: 1 / 1 / 4 / 2;
-    padding: 10px 10px 10px 10px;
+    /* Налаштування лівої бокової панелі */
+    background: var(--my-blue);  /* Синій фон */
+    grid-area: 1 / 1 / 4 / 2;  /* Розміщення: від 1-го до 4-го рядка, займає перший стовпець */
+    padding: 10px 10px 10px 10px;  /* Внутрішні відступи */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column;  /* Елементи розташовані у стовпчик */
+    justify-content: center;  /* Вирівнювання по центру вертикально */
 }
 
 .right {
-    background: var(--my-yellow);
-    grid-area: 2 / 4 / 4 / 5;
-    padding: 10px 10px 10px 10px;
+    /* Налаштування правої бокової панелі */
+    background: var(--my-blue);  /* Синій фон */
+    grid-area: 2 / 4 / 4 / 5;  /* Розміщення: від 2-го до 4-го рядка, займає 4-й стовпець */
+    padding: 10px 10px 10px 10px;  /* Внутрішні відступи */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column;  /* Елементи розташовані у стовпчик */
+    justify-content: center;  /* Вирівнювання по центру вертикально */
 }
 
-main ul {
-    margin: 0 auto 0 auto;
-}
-
-main ol {
-    margin: 0 auto 0 auto;
+main ul, main ol {
+    /* Налаштування для списків в основній частині */
+    margin: 0 auto 0 auto;  /* Центрування списків */
 }
 
 .main-image {
-    margin: auto;
-    width: 50%;
-    height: auto;
+    /* Налаштування для зображення */
+    margin: auto;  /* Центрування зображення */
+    width: 50%;  /* Ширина зображення - 50% */
+    height: auto;  /* Висота автоматично підлаштовується */
 }
 
 .main-map {
-    margin: auto;
-    width: 70%;
-    height: auto;
+    /* Налаштування для карти */
+    margin: auto;  /* Центрування карти */
+    width: 70%;  /* Ширина карти - 70% */
+    height: auto;  /* Висота автоматично підлаштовується */
 }
