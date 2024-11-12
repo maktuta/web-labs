@@ -1,0 +1,151 @@
+:root {
+    --my-cyan: #ffffff;
+    --my-light-yellow: #4c00b5;
+    --my-dark-torqoise: #5f00e3;
+    --my-light-torqoise: #63cdb3;
+    --my-blue: #68a5ef;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+header {
+    color: #ffffff;
+    background: var(--my-dark-torqoise);
+    width: 90%;
+    margin: 0 auto;
+    margin-left: 150px;
+    padding: 7px;
+    overflow: hidden;
+}
+
+header h1 {
+    float: left;
+    margin-right: 40%;
+}
+
+header p {
+    float: left;
+    max-width: 50%;
+}
+
+header img {
+    float: right;
+    width: 10%;
+    height: auto;
+}
+
+nav {
+    color: #ffffff;
+    background: var(--my-light-yellow);
+    width: 80%;
+    margin: 0px auto;
+    padding: 5%;
+    overflow: hidden;
+}
+
+nav a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    color: rgb(0, 176, 0);
+    transition: 0.5s;
+}
+
+main {
+    font-size: 400%;
+    color: #ffffff;
+    background: var(--my-dark-torqoise);
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    height: 100vh;
+    overflow: hidden;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+main ul, main ol {
+    margin: 0 auto;
+}
+
+.main-image {
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    height: auto;
+}
+
+.main-map {
+    display: block;
+    margin: 20px auto;
+    width: 70%;
+    height: auto;
+}
+
+.left {
+    color: #ffffff;
+    background: var(--my-light-yellow);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: calc(100% - 40px);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    
+}
+
+.right {
+    color: #ffffff;
+    background: var(--my-light-yellow);
+    position: absolute;
+    top: 145px;
+    right: 0;
+    width: 10%;
+    height: calc(100% - 140px);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+footer {
+    color: #ffffff;
+    background: var(--my-dark-torqoise);
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+
+    overflow: hidden;
+}
+
+footer h2 {
+    float: left;
+    margin-right: 40%;
+}
+
+footer p {
+    float: left;
+    max-width: 50%;
+}
+
+footer img {
+    float: right;
+    width: 10%;
+    height: auto;
+}

@@ -1,0 +1,116 @@
+:root {
+    --my-cyan: #ffffff;
+    --my-light-yellow: #4c00b5;
+    --my-dark-torqoise: #5f00e3;
+    --my-light-torqoise: #63cdb3;
+    --my-blue: #68a5ef;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    /* Розташування дочірніх елементів у стовпчик */
+    height: 100vh;
+    /* Висота вікна */
+}
+
+header {
+    background: var(--my-dark-torqoise);
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.header .logo {
+    width: 100px; 
+    height: auto; 
+}
+
+.footer .logo {
+    width: 100px; 
+    height: auto; 
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    /* Займає весь залишковий простір */
+}
+
+.column {
+    flex: 1;
+    /* Кожна колонка займає однакову частину простору */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left {
+    color: white;
+    background: var(--my-light-yellow);
+    flex: 0.2;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.right {
+    color: white;
+    background: var(--my-light-yellow);
+    flex: 0.2;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    /* Розташування дочірніх елементів у стовпчик */
+    flex: 2;
+    min-height: 700px; 
+}
+
+.menu {
+    background: var(--my-light-yellow);
+
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+}
+
+nav a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    color: rgb(0, 176, 0);
+    transition: 0.5s;
+}
+
+.main {
+    color: white;
+    font-size: 50px;
+    background: var(--my-dark-torqoise);
+    flex: 1;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+.footer {
+    background: var(--my-dark-torqoise);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

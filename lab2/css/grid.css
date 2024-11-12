@@ -1,0 +1,146 @@
+:root {
+    --my-cyan: #ffffff;
+    --my-light-yellow: #4c00b5;
+    --my-dark-torqoise: #5f00e3;
+    --my-light-torqoise: #63cdb3;
+    --my-blue: #68a5ef;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 
+    minmax(min-content, 10%) 
+    minmax(min-content, 30%) 
+    minmax(min-content, 50%) 
+    minmax(min-content, 10%);;
+    grid-template-rows: 
+    minmax(min-content, 20%) 
+    minmax(10%, 50%) 
+    minmax(min-content, 50%) 
+    minmax(min-content, 20%);
+    min-height: 100vh;
+}
+
+footer {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--my-dark-torqoise);
+    grid-area: 4 / 1 / 5 / 5;
+    padding: 10px 10px 10px 10px;
+}
+
+footer h2 {
+    margin-right: 60%;
+}
+
+footer p {
+    max-width: 50%;
+}
+
+footer img{
+    margin: auto;
+    width: 10%;
+    height: auto;
+}
+
+header {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--my-dark-torqoise);
+    grid-area: 1 / 2 / 2 / 5;
+    padding: 10px 10px 10px 10px;
+}
+
+header h1 {
+    margin-left: auto;
+    margin-right: 40%;
+}
+
+header p {
+    max-width: 50%;
+    margin-left: auto;
+}
+
+header img{
+    margin: auto;
+    width: 10%;
+    height: auto;
+}
+
+nav {
+    color: #ffffff;
+    grid-area: 2 / 2 / 3 / 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--my-light-yellow);
+    padding: 5%;
+}
+
+nav a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    color: rgb(0, 176, 0);
+    transition: 0.5s;
+}
+
+main {
+    font-size: 400%;
+    align-items: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--my-dark-torqoise);
+    grid-area: 3 / 2 / 4 / 4;
+    padding: 10px 10px 10px 10px;
+    height: 100vh;
+}
+
+
+.left {
+    color: #ffffff;
+    background: var(--my-light-yellow);
+    grid-area: 1 / 1 / 4 / 2;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right {
+    color: #ffffff;
+    background: var(--my-light-yellow);
+    grid-area: 2 / 4 / 4 / 5;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main ul, main ol {
+    margin: 0 auto 0 auto;
+}
+
+.main-image {
+    margin: auto;
+    width: 50%;
+    height: auto;
+}
+
+.main-map {
+    margin: auto;
+    width: 70%;
+    height: auto;
+}
+
