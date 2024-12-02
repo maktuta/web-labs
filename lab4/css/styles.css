@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 2px solid #eee;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hero {
+    background-color: #FFD700;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.images img {
+    width: 20%;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.short {
+    position: relative;
+    top: 70px;
+}
+
+.tall {
+    position: relative;
+    bottom: 20px;
+}
+
+.info-cards {
+    display: flex;
+    justify-content: space-around;
+    background-color: #002060;
+    padding: 40px 20px;
+}
+
+.card {
+    background-color: white;
+    width: 20%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card .icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #FFD700;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: #002060;
+}
+
+.card p {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.card a {
+    font-size: 14px;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #444;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Мобільна версія */
+@media (max-width: 768px) {
+    .images img {
+        width: 90%; /* Зображення на всю ширину */
+        margin: 10px auto; /* Вирівнювання по центру */
+        display: block;
+    }
+
+    .info-cards {
+        flex-direction: column; /* Вертикальне розташування карток */
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; /* Картки на всю ширину */
+        margin-bottom: 20px; /* Відступ між картками */
+    }
+
+    header {
+        flex-wrap: wrap; /* Дозволяє переносити елементи */
+        text-align: center;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .short {
+        position: relative;
+        top: 0px;
+    }
+    
+    .tall {
+        position: relative;
+        bottom: 0px;
+    }
+}
