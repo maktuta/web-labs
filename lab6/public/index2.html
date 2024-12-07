@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Page</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="neon.png" alt="logo">
+        <h1>Game Over</h1>
+        <p>Store where you will be buying the things you like.</p>
+
+    </header>
+
+    <aside class="left">
+        <p>
+            Find unique items <br>Rare colections <br>And astonishing prices!
+        </p>
+    </aside>
+
+    <nav class="navigation">
+        <a href="/index.html">Start Page</a>
+        <a href="/ul.html">Unordered List</a>
+        <a href="/ol.html">Ordered List</a>
+        <a href="/img.html">Image</a>
+        <a href="/map.html">Map</a>
+        <a href="/grid.html">Grid</a>
+        <a href="/flexbox.html">Flexbox</a>
+        <a href="/float.html">Float</a>
+        <a href="/gmail.html">Gmail</a>
+        <a href="/phone.html">Phone</a>
+        <a href="/lab5.html">Lab5</a>
+        <a href="/index.html">Lab6.1</a>
+        <a href="/index2.html">Lab6.2</a>
+    </nav>
+
+    <main>
+        <h1>Список вкладок</h1>
+        <div id="tabs-container"></div>
+    </main>
+
+    <aside class="right">
+        <p>
+            I dont think you will read the info on the right, so i will leave it free
+        </p>
+    </aside>
+
+    <footer>
+        <img class="logo" src="neon.png" alt="logo">
+        <h2>Game Over</h2>
+        <p>Our contact information:<br>+380XXXXXXXXX</p>
+    </footer>
+
+    <script>
+        // Завантаження вкладок із сервера
+        async function loadTabs() {
+            const response = await fetch('/tabs');
+            const tabs = await response.json();
+
+            const container = document.getElementById('tabs-container');
+            container.innerHTML = '';  // Очищаємо контейнер перед додаванням вкладок
+
+            tabs.forEach((tab) => {
+                const tabElement = document.createElement('div');
+                tabElement.textContent = tab.name;
+                tabElement.classList.add('tab');
+                container.appendChild(tabElement);
+            });
+        }
+
+        // Завантажити вкладки при завантаженні сторінки
+        window.onload = loadTabs;
+    </script>
+</body>
+
+</html>
