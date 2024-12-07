@@ -5,3 +5,4 @@ LAB2 https://07f62433.veb-lab.pages.dev/ <br>
 LAB3 https://35425d02.veb-lab.pages.dev/ <br>
 LAB4 https://veb-lab.pages.dev/ <br>
 LAB5 https://veb-lab.pages.dev/ <br>
+LAB6 testlab6-production-e9b2.up.railway.app <br>
