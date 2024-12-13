@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Start Page</title>
+    <link href="/css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="images/neon.png" alt="logo">
+        <h1>Game Over</h1>
+        <p>Store where you will be buying the things you like.</p>
+
+    </header>
+
+    <aside class="left">
+        <p>
+            Find unique items <br>Rare colections <br>And astonishing prices!
+        </p>
+    </aside>
+
+    <nav class="navigation">
+        <a href="/index.html">Start Page</a>
+        <a href="/ul.html">Unordered List</a>
+        <a href="/ol.html">Ordered List</a>
+        <a href="/img.html">Image</a>
+        <a href="/map.html">Map</a>
+        <a href="/grid.html">Grid</a>
+        <a href="/flexbox.html">Flexbox</a>
+        <a href="/float.html">Float</a>
+        <a href="/gmail.html">Gmail</a>
+        <a href="/phone.html">Phone</a>
+        <a href="/lab5.html">Lab5</a>
+    </nav>
+
+    <main>
+        <div id="container">
+            <div class="ball" id="ball"></div>
+          </div>
+        
+          <div class="controls">
+            <button id="playButton">Play</button>
+            <button id="closeButton">Close</button>
+            <button id="viewEventsButton">Подивитись події</button>
+            <button onclick="openLink()"> Подивитись красивих собачок</button>
+          </div>
+        
+          <div id="tables-container" class="hidden">
+            <div>
+              <h2>Events Sent to Server</h2>
+              <table id="serverTable">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Event</th>
+                    <th>Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody id="serverTableBody">
+                </tbody>
+              </table>
+            </div>
+        
+            <div>
+              <h2>Events Stored in LocalStorage</h2>
+              <table id="localStorageTable">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Event</th>
+                    <th>Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody id="localStorageTableBody">
+                </tbody>
+              </table>
+            </div>
+          </div>       
+    </main>
+
+    <aside class="right">
+        <p>
+            I dont think you will read the info on the right, so i will leave it free
+        </p>
+    </aside>
+
+    <footer>
+        <img class="logo" src="images/neon.png" alt="logo">
+        <h2>Game Over</h2>
+        <p>Our contact information:<br>+380XXXXXXXXX</p>
+    </footer>
+
+    <script>
+        const ball = document.getElementById('ball');
+        const container = document.getElementById('container');
+        const playButton = document.getElementById('playButton');
+        const closeButton = document.getElementById('closeButton');
+        const viewEventsButton = document.getElementById('viewEventsButton');
+        const tablesContainer = document.getElementById('tables-container');
+        const serverTableBody = document.getElementById('serverTableBody');
+        const localStorageTableBody = document.getElementById('localStorageTableBody');
+    
+        let x = Math.random() * (container.offsetWidth - ball.offsetWidth);
+        let y = Math.random() * (container.offsetHeight - ball.offsetHeight);
+        let dx = (Math.random() * 4 + 2) * (Math.random() > 0.5 ? 1 : -1);
+        let dy = (Math.random() * 4 + 2) * (Math.random() > 0.5 ? 1 : -1);
+    
+        const ballWidth = ball.offsetWidth;
+        const ballHeight = ball.offsetHeight;
+        const containerWidth = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
+    
+        let animationFrame;
+        let isAnimating = false;
+    
+        function sendEventToServer(eventData) {
+          fetch('https://testlab7-production.up.railway.app/events', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(eventData)
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Event saved on server:', data);
+            displayEventOnServerTable(eventData);
+          })
+          .catch(error => {
+            console.error('Error saving event to server:', error);
+          });
+        }
+    
+        function saveEventToLocalStorage(eventData) {
+          const events = JSON.parse(localStorage.getItem('events')) || [];
+          events.push(eventData);
+          localStorage.setItem('events', JSON.stringify(events));
+          displayEventOnLocalStorageTable(eventData);
+        }
+    
+        function displayEventOnServerTable(event) {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td>${event.id}</td><td>${event.event}</td><td>${event.timestamp}</td>`;
+          serverTableBody.appendChild(row);
+        }
+    
+        function displayEventOnLocalStorageTable(event) {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td>${event.id}</td><td>${event.event}</td><td>${event.timestamp}</td>`;
+          localStorageTableBody.appendChild(row);
+        }
+    
+        function animate() {
+          if (isAnimating) {
+            x += dx;
+            y += dy;
+    
+            if (x + ballWidth >= containerWidth || x <= 0) {
+              dx = -dx;
+            }
+            if (y + ballHeight >= containerHeight || y <= 0) {
+              dy = -dy;
+            }
+    
+            ball.style.transform = `translate(${x}px, ${y}px)`;
+    
+            animationFrame = requestAnimationFrame(animate);
+          }
+        }
+    
+        playButton.addEventListener('click', () => {
+          if (!isAnimating) {
+            isAnimating = true;
+            animate();
+    
+            const event = {
+              id: Date.now(),
+              event: 'Animation started',
+              timestamp: new Date().toISOString()
+            };
+    
+            sendEventToServer(event);
+            saveEventToLocalStorage(event);
+          }
+        });
+    
+        closeButton.addEventListener('click', () => {
+          if (isAnimating) {
+            isAnimating = false;
+    
+            const event = {
+              id: Date.now(),
+              event: 'Animation stopped',
+              timestamp: new Date().toISOString()
+            };
+    
+            sendEventToServer(event);
+            saveEventToLocalStorage(event);
+          }
+        });
+    
+        viewEventsButton.addEventListener('click', () => {
+          tablesContainer.classList.toggle('hidden');
+        });
+    
+        function openLink() {
+                window.location.href = 'https://youtu.be/j5a0jTc9S10';  // Замініть на потрібне посилання
+            }
+      </script>
+
+</body>
+</html>
